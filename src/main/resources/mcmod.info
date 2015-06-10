@@ -1,16 +1,21 @@
-[
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
+  "modListVersion": 2,
+  "modList": [{
+    "modid": "samsfragiletorches",
+    "name": "Fragile Torches",
+    "description": "Torches have a chance to break when walked into by anything.",
+    "version": "1.8-1.0.0",
+    "mcversion": "1.8",
+    "url": "https://github.com/PrinceOfAmber/SamsPowerups/releases",
+    "updateUrl": "",
+    "authorList": [ "Lothrazar" ],
+    "credits": "Thanks to LexManos for the gradle video, and everyone on the forums",
+    "logoFile": "",
+    "screenshots": [  ],
+    "parent": "",
+    "requiredMods": [ "Forge" ],
+    "dependencies": [  ],
+    "dependants": [  ],
+    "useDependencyInformation": false
+  }]
 }
-]
