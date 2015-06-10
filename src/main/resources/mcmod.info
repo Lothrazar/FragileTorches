@@ -3,7 +3,7 @@
   "modList": [{
     "modid": "samsfragiletorches",
     "name": "Fragile Torches",
-    "description": "Torches have a chance to break when walked into by anything.",
+    "description": "Torches have a chance to break when passed through by any living entity (unless it is a sneaking player).",
     "version": "1.8-1.0.0",
     "mcversion": "1.8",
     "url": "https://github.com/PrinceOfAmber/SamsPowerups/releases",
