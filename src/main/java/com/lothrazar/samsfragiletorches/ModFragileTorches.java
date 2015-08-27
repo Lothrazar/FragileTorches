@@ -5,13 +5,13 @@ import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import net.minecraftforge.fml.common.FMLCommonHandler;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 @Mod(modid = ModFragileTorches.MODID, useMetadata=true)
 public class ModFragileTorches
@@ -37,7 +37,7 @@ public class ModFragileTorches
 	@SubscribeEvent
 	public void onEntityUpdate(LivingUpdateEvent event) 
 	{  
-		if(event.entityLiving.worldObj.getBlockState(event.entityLiving.getPosition()).getBlock() == Blocks.torch) 
+		if(event.entityLiving.worldObj.getBlock((int)event.entityLiving.posX,(int)event.entityLiving.posY,(int)event.entityLiving.posZ) == Blocks.torch) 
 		{ 
 			float oddsWillBreak = 0.01F;//TODO: in config or something? or make this 1/100
 			boolean playerCancelled = false;
@@ -54,7 +54,8 @@ public class ModFragileTorches
 					&& event.entityLiving.worldObj.rand.nextDouble() < oddsWillBreak
 					&& event.entityLiving.worldObj.isRemote == false)
 			{ 
-				event.entityLiving.worldObj.destroyBlock(event.entityLiving.getPosition(), true);  
+				//func_147480_a//destroyBlock
+				event.entityLiving.worldObj.func_147480_a((int)event.entityLiving.posX,(int)event.entityLiving.posY,(int)event.entityLiving.posZ, true);  
 			}
 		}
 	}
