@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = ModFragileTorches.MODID, useMetadata=true)
+@Mod(modid = ModFragileTorches.MODID, useMetadata=true, updateJSON="https://github.com/LothrazarMinecraftMods/FragileTorches/blob/master/update.json")
 public class ModFragileTorches
 {
     public static final String MODID = "samsfragiletorches";
