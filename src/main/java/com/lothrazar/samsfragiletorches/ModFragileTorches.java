@@ -3,13 +3,10 @@ package com.lothrazar.samsfragiletorches;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.Mod.Instance; 
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -24,16 +21,9 @@ public class ModFragileTorches
    	@EventHandler
    	public void onPreInit(FMLPreInitializationEvent event)
    	{ 
-   		//cfg = new ConfigRegistry(new Configuration(event.getSuggestedConfigurationFile()));
-    
-   		FMLCommonHandler.instance().bus().register(instance); 
    		MinecraftForge.EVENT_BUS.register(instance); 
    	}
-    @EventHandler
-    public void init(FMLInitializationEvent event)
-    {
-    }
-    
+   	
 	@SubscribeEvent
 	public void onEntityUpdate(LivingUpdateEvent event) 
 	{  
@@ -58,5 +48,4 @@ public class ModFragileTorches
 			}
 		}
 	}
-
 }
