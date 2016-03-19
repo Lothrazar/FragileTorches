@@ -6,45 +6,41 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.Mod.Instance; 
+import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = ModFragileTorches.MODID, useMetadata=true, updateJSON="https://github.com/LothrazarMinecraftMods/FragileTorches/blob/master/update.json")
-public class ModFragileTorches
-{
-    public static final String MODID = "samsfragiletorches";
+@Mod(modid = ModFragileTorches.MODID, useMetadata = true, updateJSON = "https://github.com/LothrazarMinecraftMods/FragileTorches/blob/master/update.json")
+public class ModFragileTorches{
+
+	public static final String MODID = "samsfragiletorches";
 
 	@Instance(value = ModFragileTorches.MODID)
 	public static ModFragileTorches instance;
-	
-   	@EventHandler
-   	public void onPreInit(FMLPreInitializationEvent event)
-   	{ 
-   		MinecraftForge.EVENT_BUS.register(instance); 
-   	}
-   	
+
+	@EventHandler
+	public void onPreInit(FMLPreInitializationEvent event){
+
+		MinecraftForge.EVENT_BUS.register(instance);
+	}
+
 	@SubscribeEvent
-	public void onEntityUpdate(LivingUpdateEvent event) 
-	{  
-		if(event.entityLiving.worldObj.getBlockState(event.entityLiving.getPosition()).getBlock() == Blocks.torch) 
-		{ 
-			float oddsWillBreak = 0.01F;//TODO: in config or something? or make this 1/100
+	public void onEntityUpdate(LivingUpdateEvent event){
+
+		if(event.entityLiving.worldObj.getBlockState(event.entityLiving.getPosition()).getBlock() == Blocks.torch){
+			float oddsWillBreak = 0.01F;// TODO: in config or something? or make this 1/100
 			boolean playerCancelled = false;
-			if(event.entityLiving instanceof EntityPlayer)
-			{
-				EntityPlayer p = (EntityPlayer)event.entityLiving;
-				if(p.isSneaking())
-				{
-					playerCancelled = true;//torches are safe from breaking
+			if(event.entityLiving instanceof EntityPlayer){
+				EntityPlayer p = (EntityPlayer) event.entityLiving;
+				if(p.isSneaking()){
+					playerCancelled = true;// torches are safe from breaking
 				}
 			}
-			
-			if(playerCancelled == false //if its a player, then the player is not sneaking
-					&& event.entityLiving.worldObj.rand.nextDouble() < oddsWillBreak
-					&& event.entityLiving.worldObj.isRemote == false)
-			{ 
-				event.entityLiving.worldObj.destroyBlock(event.entityLiving.getPosition(), true);  
+
+			if(playerCancelled == false // if its a player, then the player is not sneaking
+					&& event.entityLiving.worldObj.rand.nextDouble() < oddsWillBreak && event.entityLiving.worldObj.isRemote == false){
+
+				event.entityLiving.worldObj.destroyBlock(event.entityLiving.getPosition(), true);
 			}
 		}
 	}

@@ -4,6 +4,10 @@
     "1.8-latest": "1.0.0",
     "1.8-recommended": "1.0.0",
     "1.8.8-latest": "1.0.0",
-    "1.8.8-recommended": "1.0.0"
+    "1.8.8-recommended": "1.0.0",
+    "1.8.9-latest": "1.0.0",
+    "1.8.9-recommended": "1.0.0",
+    "1.9-latest": "1.0.0",
+    "1.9-recommended": "1.0.0"
   }
 }
