@@ -1,5 +1,8 @@
 package com.lothrazar.samsfragiletorches;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,21 +29,28 @@ public class ModFragileTorches{
 
 	@SubscribeEvent
 	public void onEntityUpdate(LivingUpdateEvent event){
-
-		if(event.entityLiving.worldObj.getBlockState(event.entityLiving.getPosition()).getBlock() == Blocks.torch){
+		Entity ent = event.getEntity();
+		if(ent instanceof EntityLiving == false){
+			return;
+		}
+		EntityLivingBase living = (EntityLivingBase) event.getEntity();
+		if(living == null){
+			return;
+		}
+		if(living.worldObj.getBlockState(living.getPosition()).getBlock() == Blocks.torch){
 			float oddsWillBreak = 0.01F;// TODO: in config or something? or make this 1/100
 			boolean playerCancelled = false;
-			if(event.entityLiving instanceof EntityPlayer){
-				EntityPlayer p = (EntityPlayer) event.entityLiving;
+			if(living instanceof EntityPlayer){
+				EntityPlayer p = (EntityPlayer) living;
 				if(p.isSneaking()){
 					playerCancelled = true;// torches are safe from breaking
 				}
 			}
 
 			if(playerCancelled == false // if its a player, then the player is not sneaking
-					&& event.entityLiving.worldObj.rand.nextDouble() < oddsWillBreak && event.entityLiving.worldObj.isRemote == false){
+					&& living.worldObj.rand.nextDouble() < oddsWillBreak && living.worldObj.isRemote == false){
 
-				event.entityLiving.worldObj.destroyBlock(event.entityLiving.getPosition(), true);
+				living.worldObj.destroyBlock(living.getPosition(), true);
 			}
 		}
 	}

@@ -4,7 +4,7 @@
     "modid": "samsfragiletorches",
     "name": "Fragile Torches",
     "description": "Torches have a chance to break when passed through by any living entity (unless it is a sneaking player).",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "mcversion": "1.9",
     "url": "http://www.curse.com/mc-mods/minecraft/231800-fragile-torches",
     "updateUrl": "",
