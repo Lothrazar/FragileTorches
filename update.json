@@ -9,9 +9,15 @@
     "1.8.9-recommended": "1.0.0",
     "1.9-latest": "1.0.0",
     "1.9-recommended": "1.0.1",
-    "1.9-recommended": "1.0.1"
+    "1.9-recommended": "1.0.1",
+    "1.14.4-recommended": "0.0.1",
+    "1.14.4-recommended": "0.0.1"
   }
   ,"1.9":{
   	"1.0.1":"Fix crashes - adapt to breaking changes in Forge"
+  },
+  "1.14.4":{
+  	"0.0.1":"First port",
+  	"0.0.2":""
   }
 }

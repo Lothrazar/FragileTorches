@@ -9,7 +9,6 @@ config/
 saves/
 .settings/
 server.properties 
-*.properties 
 .gradle/
 screenshots/
 .metadata/

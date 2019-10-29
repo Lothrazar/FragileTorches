@@ -20,7 +20,7 @@ displayName="fragiletorches Mod" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
 updateJSONURL="https://raw.githubusercontent.com/Lothrazar/FragileTorches/master/update.json" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
-displayURL="CURSEWEBSITEGOESHERE" #optional
+displayURL="https://www.curseforge.com/minecraft/mc-mods/fragile-torches/" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="fragiletorches.png" #optional
 # A text field displayed in the mod UI
