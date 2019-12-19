@@ -34,7 +34,7 @@ public class FragTorchEvent {
       if (ent instanceof PlayerEntity) {
         //i am a player, i can avoid this
         PlayerEntity p = (PlayerEntity) ent;
-        if (p.isSneaking()) {
+        if (p.isCrouching()) {
           return;// ok // torches are safe from breaking as secret edge case for happiness
         }
       }
