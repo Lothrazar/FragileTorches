@@ -9,7 +9,6 @@ config/
 saves/
 .settings/
 server.properties 
-*.properties 
 .gradle/
 screenshots/
 .metadata/
@@ -24,3 +23,4 @@ crash-reports/
 *.tis
 .recommenders/
 *.launch
+src/generated
