@@ -19,5 +19,8 @@
   "1.14.4":{
   	"0.0.1":"First port",
   	"1.0.0":"Block tag 'fragiletorches:fragile' added, all blocks with this tag are breakable.  Added config file listing which entities will not break. "
+  },
+  "1.15.2": {
+    "1.0.0": "Release "
   }
 }
