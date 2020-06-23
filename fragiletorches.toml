@@ -1,6 +1,9 @@
 
 #settings
 [fragiletorches]
+	#Chance that a torch will break during a collision (checks on a tick while entity is inside torch)
+	#Range: 0.0 ~ 1.0
+	chancetobreak = 0.019999999552965164
 
 	[fragiletorches.entities]
 
