@@ -27,7 +27,6 @@ public class FragTorchEvent {
       return;
     }
     if (ent instanceof PlayerEntity) {
-      //if config turns off player breaking, stop now
       //i am a player, i can avoid this
       PlayerEntity p = (PlayerEntity) ent;
       if (p.isCrouching()) {
@@ -35,7 +34,7 @@ public class FragTorchEvent {
       }
     }
     World world = ent.world;
-    if (ent.world.rand.nextDouble() > ConfigManager.DOUBLEVALUE.get()) {
+    if (world.rand.nextDouble() > ConfigManager.DOUBLEVALUE.get()) {
       return;
     }
     BlockPos pos = ent.getPosition();
