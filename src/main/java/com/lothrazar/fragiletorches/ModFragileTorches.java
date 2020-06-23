@@ -17,7 +17,6 @@ import net.minecraftforge.fml.loading.FMLPaths;
 public class ModFragileTorches {
 
   public static final String MODID = "fragiletorches";
-  private String certificateFingerprint = "@FINGERPRINT@";
   public static ConfigManager config;
   public static final IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
   public static final Logger LOGGER = LogManager.getLogger();
@@ -45,7 +44,6 @@ public class ModFragileTorches {
   public ModFragileTorches() {
     config = new ConfigManager(FMLPaths.CONFIGDIR.get().resolve(MODID + ".toml"));
     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-    MinecraftForge.EVENT_BUS.register(this);
     MinecraftForge.EVENT_BUS.register(new FragTorchEvent());
   }
 
