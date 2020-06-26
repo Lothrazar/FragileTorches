@@ -2,7 +2,7 @@ package com.lothrazar.fragiletorches;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import com.lothrazar.fragiletorches.config.ConfigManager;
+import com.lothrazar.fragiletorches.ConfigManager;
 import com.lothrazar.fragiletorches.setup.ClientProxy;
 import com.lothrazar.fragiletorches.setup.IProxy;
 import com.lothrazar.fragiletorches.setup.ServerProxy;

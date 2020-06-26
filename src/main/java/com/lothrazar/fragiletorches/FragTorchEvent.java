@@ -1,11 +1,12 @@
 package com.lothrazar.fragiletorches;
 
-import com.lothrazar.fragiletorches.config.ConfigManager;
+import com.lothrazar.fragiletorches.ConfigManager;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.BlockTags.Wrapper;
+import net.minecraft.tags.ITag; 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -15,7 +16,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class FragTorchEvent {
 
   private static final ResourceLocation TAGRL = new ResourceLocation(ModFragileTorches.TAGID);
-  private static final Wrapper TAGSTATE = new BlockTags.Wrapper(TAGRL);
+  private static final  ITag.INamedTag<Block>  TAGSTATE = BlockTags.makeWrapperTag(TAGRL.toString());
 
   @SubscribeEvent
   public void onEntityUpdate(LivingUpdateEvent event) {
@@ -37,14 +38,14 @@ public class FragTorchEvent {
     if (world.rand.nextDouble() > ConfigManager.DOUBLEVALUE.get()) {
       return;
     }
-    BlockPos pos = ent.getPosition();
+    BlockPos pos = ent.func_233580_cy_();// ent.getPosition();
     BlockState bs = world.getBlockState(pos);
-    boolean breakable = bs.isIn(TAGSTATE);
+    boolean breakable =   bs.func_235714_a_(TAGSTATE);//isIn(
     if (!breakable && ent.getEyeHeight() >= 1) {
       //also check above at eye level
       pos = pos.up();//so go up one 
       bs = world.getBlockState(pos);
-      breakable = bs.isIn(TAGSTATE);
+      breakable = bs.func_235714_a_(TAGSTATE); //isIn
     }
     if (breakable) {
       //player? 
