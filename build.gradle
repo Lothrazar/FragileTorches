@@ -21,8 +21,8 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.10-1.0.0"
-group= "com.lothrazar.samsfragiletorches" 
+version = "1.7.10-1.0.1"
+group= "com.lothrazar.fragiletorches" 
 archivesBaseName = "FragileTorches"
 
 minecraft {

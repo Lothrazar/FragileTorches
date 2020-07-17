@@ -6,6 +6,7 @@ eclipse/
 logs/
 .gradle/
 .settings/
+.classpath
 server.properties 
 screenshots/
 .project
