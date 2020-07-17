@@ -1,7 +1,7 @@
 {
   "modListVersion": 2,
   "modList": [{
-    "modid": "samsfragiletorches",
+    "modid": "fragiletorches",
     "name": "Fragile Torches",
     "description": "Torches have a chance to break when passed through by any living entity (unless it is a sneaking player).",
     "version": "${mod_version}",

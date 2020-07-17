@@ -13,13 +13,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 
-@Mod(modid = ModFragileTorches.MODID, useMetadata = true)
-public class ModFragileTorches {
+@Mod(modid = FragileTorchesMod.MODID, useMetadata = true)
+public class FragileTorchesMod {
 
   public static final String MODID = "fragiletorches";
   public static float oddsWillBreak = 0.01F;
-  @Instance(value = ModFragileTorches.MODID)
-  public static ModFragileTorches instance;
+  @Instance(value = FragileTorchesMod.MODID)
+  public static FragileTorchesMod instance;
 
   @EventHandler
   public void onPreInit(FMLPreInitializationEvent event) {
