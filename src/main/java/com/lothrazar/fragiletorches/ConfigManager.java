@@ -16,7 +16,7 @@ public class ConfigManager {
   private static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
   private static ForgeConfigSpec COMMON_CONFIG;
   public static DoubleValue DOUBLEVALUE;
-  static {
+  static { 
     initConfig();
   }
 
