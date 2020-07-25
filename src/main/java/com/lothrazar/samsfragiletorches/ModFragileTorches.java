@@ -13,8 +13,8 @@ import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = ModFragileTorches.MODID, useMetadata = true, updateJSON = "https://github.com/LothrazarMinecraftMods/FragileTorches/blob/master/update.json")
-public class ModFragileTorches{
+@Mod(modid = ModFragileTorches.MODID, useMetadata = true, updateJSON = "https://github.com/Lothrazar/FragileTorches/blob/trunk/1.10/update.json")
+public class ModFragileTorches {
 
 	public static final String MODID = "samsfragiletorches";
 
@@ -22,33 +22,33 @@ public class ModFragileTorches{
 	public static ModFragileTorches instance;
 
 	@EventHandler
-	public void onPreInit(FMLPreInitializationEvent event){
+	public void onPreInit(FMLPreInitializationEvent event) {
 
 		MinecraftForge.EVENT_BUS.register(instance);
 	}
 
 	@SubscribeEvent
-	public void onEntityUpdate(LivingUpdateEvent event){
+	public void onEntityUpdate(LivingUpdateEvent event) {
 		Entity ent = event.getEntity();
-		if(ent instanceof EntityLiving == false){
+		if (ent instanceof EntityLiving == false) {
 			return;
 		}
 		EntityLivingBase living = (EntityLivingBase) event.getEntity();
-		if(living == null){
+		if (living == null) {
 			return;
 		}
-		if(living.worldObj.getBlockState(living.getPosition()).getBlock() == Blocks.torch){
+		if (living.worldObj.getBlockState(living.getPosition()).getBlock() == Blocks.TORCH) {
 			float oddsWillBreak = 0.01F;// TODO: in config or something? or make this 1/100
 			boolean playerCancelled = false;
-			if(living instanceof EntityPlayer){
+			if (living instanceof EntityPlayer) {
 				EntityPlayer p = (EntityPlayer) living;
-				if(p.isSneaking()){
+				if (p.isSneaking()) {
 					playerCancelled = true;// torches are safe from breaking
 				}
 			}
 
-			if(playerCancelled == false // if its a player, then the player is not sneaking
-					&& living.worldObj.rand.nextDouble() < oddsWillBreak && living.worldObj.isRemote == false){
+			if (playerCancelled == false // if its a player, then the player is not sneaking
+					&& living.worldObj.rand.nextDouble() < oddsWillBreak && living.worldObj.isRemote == false) {
 
 				living.worldObj.destroyBlock(living.getPosition(), true);
 			}
