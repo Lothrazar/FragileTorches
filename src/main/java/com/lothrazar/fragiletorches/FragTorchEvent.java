@@ -37,7 +37,7 @@ public class FragTorchEvent {
     if (world.rand.nextDouble() > ConfigManager.DOUBLEVALUE.get()) {
       return;
     }
-    BlockPos pos = ent.func_233580_cy_();// ent.getPosition();
+    BlockPos pos = ent.getPosition();// ent.getPosition();
     BlockState bs = world.getBlockState(pos);
     boolean breakable = bs.isIn(TAGSTATE);
     if (!breakable && ent.getEyeHeight() >= 1) {
