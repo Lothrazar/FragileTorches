@@ -2,4 +2,4 @@
 
 ./gradlew build
 
-echo "check in /build/libs/"
+cp -v ./build/libs/* C:/temp/

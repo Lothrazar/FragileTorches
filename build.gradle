@@ -67,3 +67,5 @@ processResources {
         exclude 'mcmod.info'
     }    
 }
+
+
