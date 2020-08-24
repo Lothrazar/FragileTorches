@@ -1,18 +1,10 @@
 buildscript {
     repositories {
         // mavenCentral()
-		maven { 
-			name = "httpsOverride"
-			url = "https://repo1.maven.org/maven2/" 
-		}
-        maven {
-            name = "forge"
-            url = "https://files.minecraftforge.net/maven"
-        }
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
+		maven {  url = "https://repo1.maven.org/maven2/" }
+        maven {  url = "http://files.minecraftforge.net/maven"    }
+        maven {  url = "https://files.minecraftforge.net/maven"    }
+        maven {  url = "https://oss.sonatype.org/content/repositories/snapshots/"    }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
@@ -30,7 +22,7 @@ minecraft {
    // version = "${mc_version}-${forge_version}"
     version = "1.7.10-10.13.4.1558-1.7.10"
     runDir = "eclipse"
-    mappings = "${mappings_version}"
+    mappings = "snapshot_20140925"
 }
 
 
