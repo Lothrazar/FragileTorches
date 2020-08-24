@@ -4,7 +4,7 @@ buildscript {
 		maven {  url = "https://repo1.maven.org/maven2/" }
         maven {  url = "http://files.minecraftforge.net/maven"    }
         maven {  url = "https://files.minecraftforge.net/maven"    }
-        maven {  url = "https://oss.sonatype.org/content/repositories/snapshots/"    }
+    maven {  url = "https://oss.sonatype.org/content/repositories/snapshots/"    }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
@@ -12,7 +12,8 @@ buildscript {
 }
 
 apply plugin: 'forge'
-// apply plugin: 'eclipse'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
 
 version = "${mc_version}-${mod_version}"
 group= "com.lothrazar.fragiletorches" 
@@ -23,22 +24,32 @@ minecraft {
     version = "1.7.10-10.13.4.1558-1.7.10"
     runDir = "eclipse"
     mappings = "snapshot_20140925"
+  //  replaceIn "FrageilTorchesMod.java"
+  //  replace "@VERSION@", project.version
 }
 
 
-sourceSets {
-    main {
-        resources {
-            srcDir 'resources'
-        }
-        java {
-            srcDir 'src'
-        }
-    }
+//sourceSets {
+//    main {
+//        resources {
+//            srcDir 'resources'
+//        }
+//        java {
+//            srcDir 'src'
+//        }
+//    }
+//}
+
+repositories {
+
+    maven {  url = "http://chickenbones.net/maven/" }
+    maven {  url = "http://mobiusstrip.eu/maven"}
+    maven {  url = "http://maven.tterrag.com/" }
+
 }
 
-processResources
-{
+
+processResources {
     // this will ensure that this task is redone when the versions change.
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
