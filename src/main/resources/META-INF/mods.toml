@@ -20,7 +20,7 @@ modId="fragiletorches" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 version="${file.jarVersion}" #mandatory
  # A display name for the mod
-displayName="e Mod" #mandatory
+displayName="Fragile Torches" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
 updateJSONURL="https://raw.githubusercontent.com/Lothrazar/FragileTorches/trunk/1.16/update.json" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
