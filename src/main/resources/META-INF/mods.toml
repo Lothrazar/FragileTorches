@@ -20,13 +20,13 @@ modId="fragiletorches" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 version="${file.jarVersion}" #mandatory
  # A display name for the mod
-displayName="fragiletorches Mod" #mandatory
+displayName="e Mod" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
 updateJSONURL="https://raw.githubusercontent.com/Lothrazar/FragileTorches/trunk/1.16/update.json" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
 displayURL="https://www.curseforge.com/minecraft/mc-mods/fragile-torches/" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
-logoFile="fragiletorches.png" #optional
+logoFile="logoFile.png" #optional
 # A text field displayed in the mod UI
 credits="Thanks for this example mod goes to Java" #optional
 # A text field displayed in the mod UI
