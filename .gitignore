@@ -8,6 +8,7 @@ mods/
 config/
 saves/
 .settings/
+.idea/
 server.properties 
 .gradle/
 screenshots/
