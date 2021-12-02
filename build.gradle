@@ -22,11 +22,11 @@ version = "${mc_version}-${mod_version}"
 group = 'com.lothrazar.fragiletorches' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'fragiletorches'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
   
- mappings channel: 'official', version: '1.17.1'
+ mappings channel: 'official', version: '1.18'
 
  // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     
@@ -67,23 +67,6 @@ minecraft {
             }
         }
 
-        data {
-            workingDirectory project.file('run')
-
-            // Recommended logging data for a userdev environment
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
-            // Recommended logging level for the console
-            property 'forge.logging.console.level', 'debug'
-
-            args '--mod', 'fragiletorches', '--all', '--output', file('src/generated/resources/')
-
-            mods {
-                fragiletorches {
-                    source sourceSets.main
-                }
-            }
-        }
     }
 }
 
@@ -181,6 +164,6 @@ task copyJar(type: Copy) {
 
 build.finalizedBy copyJar
 
-cleanJar {
+task cleanJar {
   delete 'build/libs'
 }
