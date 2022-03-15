@@ -1,5 +1,6 @@
 package com.lothrazar.fragiletorches;
 
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.entity.Entity;
@@ -15,7 +16,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class FragTorchEvent {
 
   private static final ResourceLocation TAGRL = new ResourceLocation(ModFragileTorches.TAGID);
-  private static final Tag.Named<Block> TAGSTATE = BlockTags.bind(TAGRL.toString());
+  private static final TagKey<Block> TAGSTATE = BlockTags.create(TAGRL);
 
   @SubscribeEvent
   public void onEntityUpdate(LivingUpdateEvent event) {
@@ -39,7 +40,7 @@ public class FragTorchEvent {
     }
     BlockPos pos = ent.blockPosition();// ent.getPosition();
     BlockState bs = world.getBlockState(pos);
-    boolean breakable = bs.is(TAGSTATE);
+    boolean breakable = bs.getBlock().builtInRegistryHolder().is(TAGSTATE);
     if (!breakable && ent.getEyeHeight() >= 1) {
       //also check above at eye level
       pos = pos.above();//so go up one 
