@@ -5,18 +5,19 @@ import java.util.List;
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 import com.google.common.collect.ImmutableList;
-import com.lothrazar.fragiletorches.ModFragileTorches;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import net.minecraftforge.common.ForgeConfigSpec.DoubleValue;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class ConfigManager {
 
   private static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
   private static ForgeConfigSpec COMMON_CONFIG;
   public static DoubleValue DOUBLEVALUE;
-  static { 
+  static {
     initConfig();
   }
 
@@ -62,7 +63,11 @@ public class ConfigManager {
   }
 
   public static boolean entityIsGentle(EntityType<?> type) {
-    String thisType = type.getRegistryName().toString();
+    ResourceLocation ekey = ForgeRegistries.ENTITIES.getKey(type);
+    if (ekey == null) {
+      return false;
+    }
+    String thisType = ekey.toString();
     for (String s : entitiesTrigger.get()) {
       if (s != null && s.equals(thisType)) {
         return true;

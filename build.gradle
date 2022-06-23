@@ -1,17 +1,10 @@
-buildscript {
-    repositories {
-		maven { url = 'https://maven.minecraftforge.net' }  
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-    }
+plugins {
+    id 'eclipse'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '5.1.+'
 }
-apply plugin: 'net.minecraftforge.gradle'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
-//apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle' 
+
+
 import net.minecraftforge.gradle.common.tasks.SignJar
 
 
@@ -23,7 +16,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
   
- mappings channel: 'official', version: '1.18.2'
+ mappings channel: 'official', version: '1.19'
 
  // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     
@@ -155,14 +148,12 @@ task signJar(type: SignJar, dependsOn: jar) {
     outputFile = jar.archivePath
 }
 
-build.dependsOn signJar
 
 task copyJar(type: Copy) {
     from jar
     into "${dist_folder}"
 }
 
-build.finalizedBy copyJar
 
 task cleanJar {
   delete 'build/libs'
