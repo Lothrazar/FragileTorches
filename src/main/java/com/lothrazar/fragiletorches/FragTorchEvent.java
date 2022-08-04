@@ -9,7 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class FragTorchEvent {
@@ -18,7 +18,7 @@ public class FragTorchEvent {
   private static final TagKey<Block> TAGSTATE = BlockTags.create(TAGRL);
 
   @SubscribeEvent
-  public void onEntityUpdate(LivingUpdateEvent event) {
+  public void onEntityUpdate(LivingTickEvent event) {
     Entity ent = event.getEntity();
     if (ent == null) {
       return;

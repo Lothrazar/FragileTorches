@@ -15,14 +15,6 @@ Project page with releases: https://www.curseforge.com/minecraft/mc-mods/fragile
 
 
 
-# Servers
-
-Looking to host a Modded server? Get a discount with my promo code
-
-
-[![Nodecraft Server](https://nodecraft.com/assets/images/partners/loth/mashup.png)](https://nodecraft.com/r/loth)
-
-
 
 
 Legacy links

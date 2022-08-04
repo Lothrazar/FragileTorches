@@ -63,7 +63,7 @@ public class ConfigManager {
   }
 
   public static boolean entityIsGentle(EntityType<?> type) {
-    ResourceLocation ekey = ForgeRegistries.ENTITIES.getKey(type);
+    ResourceLocation ekey = ForgeRegistries.ENTITY_TYPES.getKey(type);
     if (ekey == null) {
       return false;
     }
