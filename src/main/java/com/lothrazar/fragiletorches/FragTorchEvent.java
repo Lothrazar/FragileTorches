@@ -20,36 +20,32 @@ public class FragTorchEvent {
   @SubscribeEvent
   public void onEntityUpdate(LivingTickEvent event) {
     Entity ent = event.getEntity();
-    if (ent == null) {
+    if (ent == null || TorchConfigManager.entityIsGentle(ent.getType())) {
       return;
     }
-    if (ConfigManager.entityIsGentle(ent.getType())) {
-      return;
-    }
-    if (ent instanceof Player) {
+    if (ent instanceof Player p) {
       //i am a player, i can avoid this
-      Player p = (Player) ent;
       if (p.isCrouching()) {
         return;// ok // torches are safe from breaking as secret edge case for happiness
       }
     }
-    Level world = ent.level;
-    if (world.random.nextDouble() > ConfigManager.DOUBLEVALUE.get()) {
+    Level level = ent.level;
+    if (level.random.nextDouble() > TorchConfigManager.DOUBLEVALUE.get()) {
       return;
     }
     BlockPos pos = ent.blockPosition();// ent.getPosition();
-    BlockState bs = world.getBlockState(pos);
+    BlockState bs = level.getBlockState(pos);
     boolean breakable = bs.is(TAGSTATE);
     if (!breakable && ent.getEyeHeight() >= 1) {
       //also check above at eye level
       pos = pos.above();//so go up one 
-      bs = world.getBlockState(pos);
+      bs = level.getBlockState(pos);
       breakable = bs.is(TAGSTATE);
     }
     if (breakable) {
       //player? 
       //ok break the torch
-      ent.level.destroyBlock(pos, true);
+      level.destroyBlock(pos, true);
     }
   }
 }

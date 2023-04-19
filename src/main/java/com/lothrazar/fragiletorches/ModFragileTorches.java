@@ -6,13 +6,11 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
 
 @Mod(ModFragileTorches.MODID)
 public class ModFragileTorches {
 
   public static final String MODID = "fragiletorches";
-  public static ConfigManager config;
   public static final Logger LOGGER = LogManager.getLogger();
   /**
    * Data file path
@@ -36,7 +34,7 @@ public class ModFragileTorches {
   public static final String TAGID = ModFragileTorches.MODID + ":fragile";
 
   public ModFragileTorches() {
-    config = new ConfigManager(FMLPaths.CONFIGDIR.get().resolve(MODID + ".toml"));
+    new TorchConfigManager();
     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
     MinecraftForge.EVENT_BUS.register(new FragTorchEvent());
   }
