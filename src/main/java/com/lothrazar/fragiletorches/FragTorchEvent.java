@@ -33,7 +33,7 @@ public class FragTorchEvent {
     if (level.random.nextDouble() > TorchConfigManager.DOUBLEVALUE.get()) {
       return;
     }
-    BlockPos pos = ent.blockPosition();// ent.getPosition();
+    BlockPos pos = ent.blockPosition();
     BlockState bs = level.getBlockState(pos);
     boolean breakable = bs.is(TAGSTATE);
     if (!breakable && ent.getEyeHeight() >= 1) {
@@ -43,7 +43,6 @@ public class FragTorchEvent {
       breakable = bs.is(TAGSTATE);
     }
     if (breakable) {
-      //player? 
       //ok break the torch
       level.destroyBlock(pos, true);
     }
