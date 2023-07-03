@@ -29,7 +29,7 @@ public class FragTorchEvent {
         return;// ok // torches are safe from breaking as secret edge case for happiness
       }
     }
-    Level level = ent.level;
+    Level level = ent.level();
     if (level.random.nextDouble() > TorchConfigManager.DOUBLEVALUE.get()) {
       return;
     }
