@@ -1,24 +1,26 @@
 package com.lothrazar.fragiletorches;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import com.mojang.logging.LogUtils;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.config.ModConfig;
+import org.slf4j.Logger;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.bus.api.IEventBus;
 
 @Mod(ModFragileTorches.MODID)
 public class ModFragileTorches {
 
   public static final String MODID = "fragiletorches";
-  public static final Logger LOGGER = LogManager.getLogger();
+  public static final Logger LOGGER = LogUtils.getLogger();
   /**
    * Data file path
-   * 
+   *
    * src/main/resources/data/fragiletorches/tags/blocks/fragile.json
-   * 
+   *
    * example contents
-   * 
+   *
    * <pre>
    {
       "replace": false,
@@ -33,10 +35,10 @@ public class ModFragileTorches {
    */
   public static final String TAGID = ModFragileTorches.MODID + ":fragile";
 
-  public ModFragileTorches() {
-    new TorchConfigManager();
-    FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-    MinecraftForge.EVENT_BUS.register(new FragTorchEvent());
+  public ModFragileTorches(IEventBus modEventBus, ModContainer modContainer) {
+    modContainer.registerConfig(ModConfig.Type.COMMON, TorchConfigManager.CONFIG);
+    modEventBus.addListener(this::setup);
+    NeoForge.EVENT_BUS.register(new FragTorchEvent());
   }
 
   private void setup(final FMLCommonSetupEvent event) {
