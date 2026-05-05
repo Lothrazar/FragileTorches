@@ -19,7 +19,8 @@ public class TorchConfigManager {
     final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
     BUILDER.comment("settings").push(ModFragileTorches.MODID);
     ENTITIESTRIGGER = BUILDER.comment("List of 'gentle' entities that will "
-        + "never knock over any tagged torch.  For example, if you remove the entry for players, then players will knock over torches. ")
+        + "never knock over any tagged torch.  For example, if you remove the entry for players, then players will knock over torches. " +
+            "For example, add minecraft:player to the list to stop players from breaking torches ")
         .defineList("entities.gentle.list",
             ImmutableList.of(
                 "minecraft:bat",
@@ -32,7 +33,6 @@ public class TorchConfigManager {
                 "minecraft:donkey",
                 "minecraft:experience_orb",
                 "minecraft:minecart",
-                "minecraft:player",
                 "minecraft:villager",
                 "minecraft:wolf"),
             obj -> obj instanceof String);
