@@ -1,7 +1,7 @@
 package com.lothrazar.fragiletorches;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
@@ -16,7 +16,7 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class FragTorchEvent {
 
-  private static final ResourceLocation TAGRL = ResourceLocation.parse(ModFragileTorches.TAGID);
+  private static final Identifier TAGRL = Identifier.parse(ModFragileTorches.TAGID);
   private static final TagKey<Block> TAGSTATE = BlockTags.create(TAGRL);
 
   // aka LivingTickEvent
@@ -38,7 +38,7 @@ public class FragTorchEvent {
       return;
     }
     Level level = ent.level();
-    if (level.random.nextDouble() > TorchConfigManager.DOUBLEVALUE.get()) {
+    if (level.getRandom().nextDouble() > TorchConfigManager.DOUBLEVALUE.get()) {
       return;
     }
     BlockPos pos = ent.blockPosition();

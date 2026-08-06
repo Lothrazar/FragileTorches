@@ -4,7 +4,7 @@ import java.util.List;
 import com.google.common.collect.ImmutableList;
 import com.lothrazar.library.util.StringParseUtil;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.ModConfigSpec.ConfigValue;
@@ -50,7 +50,7 @@ public class TorchConfigManager {
 //  }
 
   public static boolean entityIsGentle(EntityType<?> type) {
-    ResourceLocation ekey = BuiltInRegistries.ENTITY_TYPE.getKey(type);
+    Identifier ekey = BuiltInRegistries.ENTITY_TYPE.getKey(type);
     return StringParseUtil.isInList(ENTITIESTRIGGER.get(), ekey);
   }
 }
